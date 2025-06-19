@@ -1,0 +1,12 @@
+# nixpacks.toml
+
+providers = ["python"]
+
+[phases.setup]
+nixPkgs = ["...", "tesseract"]
+
+[phases.build]
+cmds = ["pip install -r requirements.txt"]
+
+[start]
+cmd = "gunicorn wsgi:application"
